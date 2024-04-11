@@ -1,0 +1,26 @@
+version: '3.4'
+services:
+  ocelotgateway:
+    image: tiktokcloneapigateway:latest
+    ports:
+      - "32803:8080"
+      - "32804:8081"   
+    networks:
+      - viralloopdockernetwork
+    volumes:
+      - ./OcelotRoutes.json:/app/OcelotRoutes.json
+
+  userservice:
+    image: tiktokcloneuserservice:latest
+    ports:
+      - "32805:8080"
+      - "32806:8081"
+    networks:
+      - viralloopdockernetwork     
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - ASPNETCORE_URLS=http://+:8080
+
+networks:
+  viralloopdockernetwork:
+    driver: bridge

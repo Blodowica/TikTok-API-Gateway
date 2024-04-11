@@ -3,11 +3,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/User/test",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 32792
+          "Host": "userservice",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/test",
