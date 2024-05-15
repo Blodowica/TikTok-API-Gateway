@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   ocelotgateway:
-    image: tiktokcloneapigateway:latest
+    image: tiktokcloneapigateway:dev
     ports:
       - "32803:8080"
       - "32804:8081"   

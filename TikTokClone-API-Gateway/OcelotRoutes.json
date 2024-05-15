@@ -1,4 +1,3 @@
-
 {
   "Routes": [
     {
@@ -12,6 +11,21 @@
       ],
       "UpstreamPathTemplate": "/test",
       "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/testAuth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/testAuth",
+      "UpstreamHttpMethod": ["GET"],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "viralloop"
+      }
     }
   ]
 }
