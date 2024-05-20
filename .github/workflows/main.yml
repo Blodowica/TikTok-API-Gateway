@@ -113,7 +113,7 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
-          cd ./TikTok-Clone-User-Service
+          cd ./TikTokClone-Api-Gateway
           docker build -t tiktokclone-api-gateway .
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
           docker tag tiktokclone-api-gateway $DOCKERHUB_USERNAME/tiktokclone-api-gateway
