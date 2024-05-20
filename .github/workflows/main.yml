@@ -70,7 +70,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Blodowica_TikTok-Clone-User-Servcie" /o:"blodowica" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build TikTokClone_API_Gateway --no-incremental
+          dotnet build TikTokClone-API-Gateway --no-incremental
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   security:
@@ -86,11 +86,11 @@ jobs:
           dotnet-version: 8.0.201
       
       - name: Restore dependencies
-        run: dotnet restore TikTok-Clone-User-Service
-
+        run: dotnet restore TikTokClone-API-Gateway
+        
       - name: Run Snyk to check for vulnerabilities
         run: |
-          cd ./TikTok-Clone-User-Service
+          cd ./TikTokClone-API-Gateway
           npm install -g snyk
           snyk auth ${{ secrets.SNYK_TOKEN }}
           snyk test --sarif-file-output=snyk.sarif
@@ -99,7 +99,7 @@ jobs:
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: ./TikTok-Clone-User-Service/snyk.sarif
+          sarif_file: ./TikTokClone-API-Gateway/snyk.sarif
 
   deploy:
     runs-on: ubuntu-latest
