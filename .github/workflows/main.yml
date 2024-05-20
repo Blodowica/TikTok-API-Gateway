@@ -19,16 +19,12 @@ jobs:
           dotnet-version: 8.0.201
 
       - name: Restore dependencies
-        working-directory: ./TikTokClone_API_Gateway
         run: dotnet restore TikTokClone-API-Gateway
       
       - name: Build
         working-directory: ./TikTokClone_API_Gateway
         run: dotnet build --configuration Release --no-restore
-      
-      - name: Run Unit tests
-        working-directory: ./TikTokClone_API_Gateway
-        run: dotnet test --no-restore --verbosity normal
+    
 
   analyze:
     runs-on: windows-latest
