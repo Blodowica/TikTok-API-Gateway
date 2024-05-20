@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore TikTokClone-API-Gateway
       
       - name: Build
-        working-directory: ./TikTokClone_API_Gateway
+        working-directory: TikTokClone_API_Gateway
         run: dotnet build TikTokClone-API-Gateway --configuration Release --no-restore
     
 
