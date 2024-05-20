@@ -117,7 +117,7 @@ jobs:
           docker build -t tiktokclone-api-gateway .
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
           docker tag tiktokclone-api-gateway $DOCKERHUB_USERNAME/tiktokclone-api-gateway
-          docker push $DOCKERHUB_USERNAME/tiktokclone-api-gateway
+          docker push $DOCKERHUB_USERNAME/tiktokclone-api-gateway:latest
 
       - name: Deploy to Azure App Service
         uses: Azure/webapps-deploy@v2
